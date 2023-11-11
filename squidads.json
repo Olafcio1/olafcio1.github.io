@@ -1,0 +1,26 @@
+[
+    {
+        "link": "http://localhost:8087",
+        "img": "http://localhost:8087/img/banner_anim.gif",
+        "glowing": true,
+        "children": [],
+        "title": "boxpvp",
+        "systems": "windows,linux,mac"
+    },
+    {
+        "link": "http://ptoszek.pl",
+        "img": "http://localhost:8087/img/banner_static.png",
+        "glowing": false,
+        "children": [],
+        "title": "anarch",
+        "systems": "windows"
+    },
+    {
+        "link": "https://youareanidiot.cc",
+        "img": "http://localhost:8087/img/logo.png",
+        "glowing": false,
+        "children": [],
+        "title": "troll",
+        "systems": "windows,mac,misc"
+    }
+]
