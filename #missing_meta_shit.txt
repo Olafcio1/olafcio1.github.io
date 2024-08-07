@@ -1,0 +1,25 @@
+<!--open graph meta tags for social sites and search engines-->
+        <meta property="og:locale" content="en_US">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Olafcio's Website">
+        <meta property="og:description" content="My website. Includes my portfolio, various facts, website creator and even, even more.">
+        <meta property="og:url" content="https://olafcio1.github.io">
+        <meta property="og:site_name" content="Olafcio's Website">
+        <meta property="og:image" content="images//hom-banner-compressed.jpg">
+        <meta property="og:image:secure_url" content="images//hom-banner-compressed.jpg">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="660">
+
+        <!--opengraph tags for location or address for information panel in google-->
+        <meta name="og:latitude" content="">
+        <meta name="og:longitude" content="">
+        <meta name="og:street-address" content="">
+        <meta name="og:locality" content="">
+        <meta name="og:region" content="">
+        <meta name="og:postal-code" content="">
+        <meta name="og:country-name" content="">
+        <!-- Site fevicon icons -->
+        <!-- <link rel="icon" href="images/icon/cropped-cropped-favicon-1-1-32x32.png" sizes="32x32">
+        <link rel="icon" href="images/icon/cropped-cropped-favicon-1-1-192x192.png" sizes="192x192">
+        <link rel="apple-touch-icon-precomposed" href="images/icon/cropped-cropped-favicon-1-1-180x180.png">
+        <meta name="msapplication-TileImage" content="images/icon/cropped-cropped-favicon-1-1-270x270.png"> -->
