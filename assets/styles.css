@@ -80,7 +80,7 @@ nav > .child > ul > li > a:hover {
 
 #home {
     height: 100%;
-    padding: 60px 5% 0;
+    padding: 60px 5% 0 14%;
     display: flex;
     background: #0003;
 }
@@ -100,7 +100,7 @@ nav > .child > ul > li > a:hover {
 }
 
 .yslider {
-    margin-top: 6px;
+    margin: 6px 0 5px;
     height: 60px;
     overflow: hidden;
     background: #fff3;
@@ -119,6 +119,10 @@ nav > .child > ul > li > a:hover {
     background: #fff2;
 }
 
+/* .yslider > p.hide {
+    animation:
+} */
+
 .cards > .card {
     margin: 0 auto;
     border-radius: 8px;
@@ -136,4 +140,10 @@ nav > .child > ul > li > a:hover {
 main > footer {
     width: 100%;
     background: #0005;
+    box-shadow: 0 0 5px 0 #0005;
+    display: flex;
+}
+
+main > footer > div {
+    margin: 25px 30px;
 }
