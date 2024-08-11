@@ -19,12 +19,20 @@ addEventListener("load", _ => {
             remove();
         }, {once: true});
     },writable:false});
+
+    function scrollFun() {
+        document.body.style.setProperty("--scrolled", document.documentElement.scrollTop + "px");
+        document.body.classList.toggle("scrolled", document.documentElement.scrollTop);
+    }
+    addEventListener("scroll", scrollFun, true);
+    scrollFun();
+
     document.body.classList.add("loaded");
 
     let ysliders = document.querySelectorAll(".yslider");
     let ye = {};
     let yi = {};
-    setInterval(() => {
+    setTimeout(function t() {
         ysliders.forEach((el, i) => {
             if (!ye[i])
                 ye[i] = [...el.querySelectorAll("p")];
@@ -42,5 +50,6 @@ addEventListener("load", _ => {
                 ], animopts);
             }
         });
+        setTimeout(t, 650);
     }, 650);
 }, { once: true });

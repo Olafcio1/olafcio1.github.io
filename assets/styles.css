@@ -90,6 +90,12 @@ nav > .child > ul > li > a:hover {
     display: grid;
     align-content: center;
     width: 50%;
+    translate: 0 var(--scrolled);
+}
+
+body.scrolled #home {
+    opacity: 0.8;
+    filter: blur(3px);
 }
 
 #home > .right {
@@ -138,8 +144,91 @@ nav > .child > ul > li > a:hover {
     font-weight: 600;
 }
 
+small + .stats::before {
+    position: absolute;
+    content: '';
+    top: -25px;
+    left: -2px;
+    border-bottom: 1px solid #777b;
+    width: 100%;
+}
+
+.stats {
+    background: #0007;
+    border: 1px solid #777b;
+    box-shadow: 0 0 5px 0 #0007;
+    border-radius: 8px;
+    padding: 8px 11px;
+    width: max-content;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 6px 0;
+    position: relative;
+    max-width: 545px;
+}
+
+.stats > h3 {
+    width: 100%;
+}
+
+.stats > .widget {
+    background: #0002;
+    border-radius: 8px;
+    border: 1px solid #777b;
+    padding: 8px 9px;
+    font-size: 0.9em;
+}
+
+.stats > .widget > p {
+    font-size: 1.25em;
+    color: #0000;
+    background: linear-gradient(45deg, #1e90ff, #ee82ee);
+    background-clip: text;
+    width: max-content;
+    position: relative;
+    z-index: 2;
+}
+
+.stats > .widget > p::after {
+    z-index: -1;
+    content: attr(c);
+    position: absolute;
+    left: -3px;
+    top: -2px;
+    scale: 1.2 1.6;
+    filter: blur(5px);
+    background: inherit;
+    background-clip: text;
+}
+
+.stats > .widget > p::before {
+    z-index: 2;
+    content: attr(c);
+    background: inherit;
+    background-clip: text;
+    position: relative;
+}
+
+section {
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
 section:not(:first-child) {
     box-shadow: inset 0 7px 5px -5px #0006, inset 0 -4px 5px -5px #0004;
+}
+
+section.center {
+    background: #777;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+}
+
+section.center > .child {
+    height: 100%;
 }
 
 #diagens {
@@ -158,7 +247,7 @@ section:not(:first-child) {
     gap: 5px;
 }
 
-#diagens > .child > .ip {
+.ip {
     border-radius: 7px;
     display: flex;
     width: max-content;
@@ -171,17 +260,19 @@ section:not(:first-child) {
     overflow: hidden;
 }
 
-#diagens > .child > .ip > .copy {
+.ip > .copy {
     background: #7fff7f83;
     box-shadow: 0 0 5px 0 #7fff7f83;
     border-radius: 7px 0 0 7px;
+    cursor: pointer;
 }
 
-#diagens > .child > .ip > * {
+.ip > * {
     display: grid;
     place-content: center;
     height: 100%;
     padding: 0 7px;
+    transition: all 0.15s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
 #diagens > .child > .flex {
@@ -191,7 +282,7 @@ section:not(:first-child) {
 }
 
 #diagens > .child > .flex > div {
-    border-radius: 5px;
+    border-radius: 8px;
     background: #0007;
     border: 1px solid #777b;
     box-shadow: 0 0 5px 0 #0008;
@@ -203,6 +294,12 @@ section:not(:first-child) {
 #diagens > .child > .flex > div > p {
     font-size: 1.2em;
     font-weight: 600;
+}
+
+#hexsense {
+    color: #000;
+    padding: 30px 0;
+    text-align: center;
 }
 
 main > footer {
