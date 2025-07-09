@@ -74,6 +74,10 @@ addEventListener("load", () => {
             if (corssh)
                 alert("Proxy key applied.");
             let username = main.querySelector(".username");
+            username.addEventListener("keydown", ev => {
+                if (ev.key === "Enter")
+                    ev.preventDefault();
+            });
             username.addEventListener("focusout", async () => {
                 await fetch(url, {
                     method: "PATCH",
