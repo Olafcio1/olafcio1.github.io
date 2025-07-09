@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+
 *, ::before, ::after {
     margin: 0;
     padding: 0;
@@ -9,14 +11,17 @@ html, body, main {
     height: 100%;
 }
 
+body {
+    font-family: "Source Sans 3", system-ui;
+    color: #fff;
+}
+
 main {
     display: grid;
     place-items: center;
     background: radial-gradient(#0000, #222) 0 0 / 100% 50%,
                 linear-gradient(#0000, #fff5);
     background-color: #000;
-    font-family: "Source Sans 3", system-ui;
-    color: #fff;
 }
 
 #login {
@@ -63,7 +68,9 @@ main {
 
 #panel > .spammer > .message {
     width: 100%;
-    resize: none;
+    min-width: 400px;
+    height: 200px;
+    resize: vertical;
     padding: 4px 7px;
     background: #fff3;
     border-radius: 10px;
@@ -108,6 +115,18 @@ button {
     cursor: pointer;
     background: linear-gradient(0deg, #fff2, #fff3);
     border-top-width: 2px;
+}
+
+body > .alert {
+    position: fixed;
+    left: 50%;
+    translate: -50%;
+    top: calc(50% - 205px);
+    background: #0007;
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    box-shadow: 0 0 5px #0004, inset 0 0 5px #0002;
+    padding: 7px;
 }
 
 * {

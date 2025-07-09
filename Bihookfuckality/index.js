@@ -50,7 +50,7 @@ addEventListener("load", () => {
                 <div class="flex">
                     <div class="user">
                         <img src="https://cdn.discordapp.com/role-icons/1315037229575573655/3e03c08d6163ef34a15663c65f2b7fc2.webp?size=20&quality=lossless">
-                        <p>${resp.name}</p>
+                        <p class="username" style="-webkit-user-modify: read-write-plaintext-only">${resp.name}</p>
                     </div>
                     <div class="leak btn">
                         <i class="fas fa-poo-storm"></i>
@@ -71,10 +71,26 @@ addEventListener("load", () => {
             if (!corssh)
                 if (corssh = prompt("cors.sh api key", "temp_90675fd335e938dd4f1c06ea17a8f9e2"))
                     localStorage.setItem("corsSh", corssh);
+            if (corssh)
+                alert("Proxy key applied.");
+            let username = main.querySelector(".username");
+            username.addEventListener("focusout", async () => {
+                await fetch(url, {
+                    method: "PATCH",
+                    body: JSON.stringify({
+                        name: username.innerText
+                    }),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                });
+                alert("Username changed.");
+            });
             let deletebtn = main.querySelector(".remove");
             deletebtn.addEventListener("click", async () => {
                 await fetch(url, { method: "DELETE" });
                 await fetch("https://proxy.cors.sh/" + url, { method: "DELETE" });
+                alert("Webhook deleted.");
             });
             let leakbtn = main.querySelector(".leak");
             leakbtn.addEventListener("click", async () => {
@@ -90,6 +106,7 @@ addEventListener("load", () => {
                     }
                 });
                 await fetch("https://proxy.cors.sh/" + url, data);
+                alert("URL sent.");
             });
             let togglebtn = main.querySelector(".toggle-spam");
             let ttsbtn = main.querySelector(".tts-toggle");
@@ -144,11 +161,17 @@ addEventListener("load", () => {
                 resps = await Promise.all(resps);
                 let timeout;
                 if (timeout = resps.find(data => data.status === 429 && data.body)) {
+                    alert("Hit rate limit, slowing down.");
                     await new Promise(rsv => setTimeout(rsv, (JSON.parse(data.body).retry_after * 1000) + 750*row429));
                     row429++;
                 } else if (timeout = resps.find(data => data.status === 429)) {
                     await new Promise(rsv => setTimeout(rsv, 2000));
                     row429++;
+                } else if (resps.some(data => data.status === 404)) {
+                    spamActive = false;
+                    togglebtn.innerHTML = `<i class="far fa-play"></i> Start spam`;
+                    alert("Webhook has got deleted by someone else.");
+                    return;
                 } else {
                     row429 = 0;
                     await new Promise(rsv => setTimeout(rsv, 1000));
@@ -160,6 +183,7 @@ addEventListener("load", () => {
                 if (spamActive) {
                     spamActive = false;
                     togglebtn.innerHTML = `<i class="far fa-play"></i> Start spam`;
+                    alert("Spam stopped.");
                 } else {
                     spamActive = true;
                     togglebtn.innerHTML = `<i class="far fa-stop"></i> Stop spam`;
@@ -169,6 +193,7 @@ addEventListener("load", () => {
                     content = message.value;
                     tts = isTTS;
                     startSpam();
+                    alert("Spam started.");
                 }
             });
             ttsbtn.addEventListener("click", () => {
@@ -176,6 +201,14 @@ addEventListener("load", () => {
                 ttsbtn.classList.toggle("toggled", isTTS);
             });
         }
+    }
+
+    function alert(message) {
+        let el = document.createElement("div");
+        el.className = "alert";
+        el.innerText = message;
+        document.body.append(el);
+        setTimeout(() => el.remove(), 1000);
     }
 
     Screens.login();
