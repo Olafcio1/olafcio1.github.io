@@ -135,19 +135,29 @@ addEventListener("load", () => {
             let row429 = 0;
             let did = 0;
             let content, tts;
+            let images = [];
+            message.addEventListener("dragover", ev => {
+                ev.preventDefault();
+            });
+            message.addEventListener("drop", ev => {
+                ev.preventDefault();
+
+                images.push(...ev.dataTransfer.files);
+            });
             async function startSpam() {
                 if (!spamActive)
                     return;
                 let resps = [];
+                let form = new FormData();
+                for (let i = 0; i < images.length; i++)
+                    form.append(`file`, images[i]);
+                form.append("payload_json", JSON.stringify({
+                    content,
+                    tts
+                }));
                 let data = {
                     method: "POST",
-                    body: JSON.stringify({
-                        content,
-                        tts
-                    }),
-                    headers: {
-                        "Content-Type": "application/json"
-                    }
+                    body: form
                 };
                 let now = performance.now();
                 let diff = now - justdidmore;
