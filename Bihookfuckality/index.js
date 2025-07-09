@@ -51,7 +51,7 @@ addEventListener("load", () => {
             main.innerHTML = html`<div id="panel">
                 <div class="flex">
                     <div class="user">
-                        <img src="https://cdn.discordapp.com/role-icons/1315037229575573655/3e03c08d6163ef34a15663c65f2b7fc2.webp?size=20&quality=lossless">
+                        <img src="${resp.avatar ? `https://cdn.discordapp.com/avatars/${resp.id}/${resp.avatar}.webp?size=32` : 'https://cdn.discordapp.com/role-icons/1315037229575573655/3e03c08d6163ef34a15663c65f2b7fc2.webp?size=32&quality=lossless'}" width="20" height="20">
                         <p class="username" style="-webkit-user-modify: read-write-plaintext-only">${resp.name}</p>
                     </div>
                     <div class="leak btn">
@@ -62,7 +62,7 @@ addEventListener("load", () => {
                     </div>
                 </div>
                 <div class="spammer">
-                    <textarea class="message">${'Owned by Olafcio x Uncover It\n'.repeat(50)}</textarea>
+                    <textarea class="message">${'Owned by Olafcio x Uncover It\n'.repeat(50)}Have Ur "Revenge" -> https://discord.gg/7rDreSNetN</textarea>
                     <div class="flex">
                         <button class="toggle-spam"><i class="far fa-play"></i> Start spam</button>
                         <button class="tts-toggle"><i class="far fa-headset"></i> TTS</button>
@@ -88,7 +88,7 @@ addEventListener("load", () => {
                 });
                 alert("Username changed.");
             }
-            username.addEventListener("keydown", ev => {
+            username.addEventListener("keyup", ev => {
                 if (ev.key === "Enter") {
                     ev.preventDefault();
                     applyunchange();
