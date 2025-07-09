@@ -46,6 +46,8 @@ addEventListener("load", () => {
 
         static async panel(url) {
             let resp = await (await fetch(url)).json();
+            main.querySelector("#login").classList.add("hide");
+            await new Promise(rsv => setTimeout(rsv, 450));
             main.innerHTML = html`<div id="panel">
                 <div class="flex">
                     <div class="user">
@@ -74,11 +76,7 @@ addEventListener("load", () => {
             if (corssh)
                 alert("Proxy key applied.");
             let username = main.querySelector(".username");
-            username.addEventListener("keydown", ev => {
-                if (ev.key === "Enter")
-                    ev.preventDefault();
-            });
-            username.addEventListener("focusout", async () => {
+            async function applyunchange() {
                 await fetch(url, {
                     method: "PATCH",
                     body: JSON.stringify({
@@ -89,11 +87,27 @@ addEventListener("load", () => {
                     }
                 });
                 alert("Username changed.");
+            }
+            username.addEventListener("keydown", ev => {
+                if (ev.key === "Enter") {
+                    ev.preventDefault();
+                    applyunchange();
+                }
             });
+            username.addEventListener("focusout", applyunchange);
             let deletebtn = main.querySelector(".remove");
             deletebtn.addEventListener("click", async () => {
-                await fetch(url, { method: "DELETE" });
-                await fetch("https://proxy.cors.sh/" + url, { method: "DELETE" });
+                try {
+                    await fetch(url, { method: "DELETE" });
+                } catch {
+                    try {
+                        await fetch("https://proxy.cors.sh/" + url, { method: "DELETE" });
+                    } catch {
+                        alert("Couldn't delete the webhook — fetch failed");
+                        return;
+                    }
+                }
+
                 alert("Webhook deleted.");
             });
             let leakbtn = main.querySelector(".leak");
@@ -174,7 +188,7 @@ addEventListener("load", () => {
                 } else if (resps.some(data => data.status === 404)) {
                     spamActive = false;
                     togglebtn.innerHTML = `<i class="far fa-play"></i> Start spam`;
-                    alert("Webhook has got deleted by someone else.");
+                    alert("Webhook got deleted by someone else.");
                     return;
                 } else {
                     row429 = 0;
@@ -212,7 +226,7 @@ addEventListener("load", () => {
         el.className = "alert";
         el.innerText = message;
         document.body.append(el);
-        setTimeout(() => el.remove(), 1000);
+        setTimeout(() => el.remove(), 1350);
     }
 
     Screens.login();

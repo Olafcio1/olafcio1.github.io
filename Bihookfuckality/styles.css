@@ -36,7 +36,20 @@ main {
     width: 400px;
 }
 
+@keyframes hide {
+    100% {
+        filter: blur(15px);
+        scale: .7;
+        opacity: 0;
+    }
+}
+
+#login.hide {
+    animation: hide .75s cubic-bezier(0.23, 1, 0.320, 1) forwards;
+}
+
 #panel {
+    animation: hide .75s cubic-bezier(0.23, 1, 0.320, 1) forwards alternate-reverse;
     background: #0004;
     border-radius: 15px;
     box-shadow: 0 0 15px #0003, 0 0 0 4px #0004;
@@ -127,6 +140,15 @@ body > .alert {
     border-radius: 15px;
     box-shadow: 0 0 5px #0004, inset 0 0 5px #0002;
     padding: 7px;
+    animation: alert .35s cubic-bezier(0.23, 1, 0.320, 1) forwards, alert .35s cubic-bezier(0.23, 1, 0.320, 1) forwards alternate-reverse 1s;
+}
+
+@keyframes alert {
+    0% {
+        filter: blur(8px);
+        transform: scale(0);
+        transform-origin: center bottom;
+    }
 }
 
 * {
