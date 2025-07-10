@@ -34,18 +34,13 @@ main {
     display: grid;
     gap: 6px;
     width: 400px;
-}
-
-@keyframes hide {
-    100% {
-        filter: blur(15px);
-        scale: .7;
-        opacity: 0;
-    }
+    transition: all .75s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
 #login.hide {
-    animation: hide .75s cubic-bezier(0.23, 1, 0.320, 1) forwards;
+    filter: blur(15px);
+    scale: .7;
+    opacity: 0;
 }
 
 #panel {

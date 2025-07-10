@@ -40,6 +40,7 @@ addEventListener("load", () => {
 
                 Screens.panel(url).catch(() => {
                     state.textContent = "Unknown webhook!";
+                    main.querySelector("#login").classList.remove("hide");
                 });
             });
         }
