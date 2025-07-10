@@ -1,0 +1,478 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body, main {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: "Inter", system-ui;
+    user-select: none;
+    overflow-x: hidden;
+}
+
+nav {
+    position: fixed;
+    inset: 15px 15px auto 15px;
+    backdrop-filter: blur(35px) contrast(.8);
+    border-radius: 15px;
+    box-shadow: 0 0 15px #0004, inset 0 0 15px -9px #0007;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 12px 0;
+    z-index: 3;
+}
+
+nav > p {
+    color: #0000;
+    background: linear-gradient(45deg, #fff, #ffe6c6, #fff) text;
+    position: relative;
+}
+
+nav > p::before {
+    content: 'Olafcio Navigator';
+    color: inherit;
+    background: inherit;
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    font-size: 1.01em;
+    filter: blur(15px) saturate(5);
+}
+
+nav > .items > a {
+    background: #fff4;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #fff4, inset 0 1px 8px -5px #0005;
+    padding: 6px 14px;
+    text-decoration: none;
+    color: #000;
+    text-shadow: 0 0 5px #0003;
+}
+
+nav > .items > a > i:only-child {
+    filter: drop-shadow(0 0 5px #0003);
+}
+
+nav > .items > a:has(> i:only-child) {
+    padding: 10px;
+}
+
+section, footer {
+    position: relative;
+    z-index: 1;
+}
+
+#main {
+    background: url(https://images.pexels.com/photos/844297/pexels-photo-844297.jpeg) center / cover no-repeat fixed;
+    /* background: linear-gradient(45deg, #0003, #1e90ff33 50%, #0002),
+                linear-gradient(180deg, #000a, #1e90ff77),
+                radial-gradient(red, #000); */
+    color: #fff;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 4%;
+    z-index: 0;
+    transition: transform .5s cubic-bezier(0.23, 1, 0.320, 1);
+    transform: scale(1);
+}
+
+#main::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    transition: all .5s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+#main[style]:not([style="top: 0px;"]):not([style="top: 1px;"]):not([style="top: 2px;"]):not([style="top: 3px;"]) {
+    transform: scale(1.03);
+}
+
+#main[style]:not([style="top: 0px;"]):not([style="top: 1px;"]):not([style="top: 2px;"]):not([style="top: 3px;"])::before {
+    background: #0001;
+    backdrop-filter: blur(12px) contrast(.9) saturate(.94) opacity(.65);
+}
+
+#main::after {
+    content: 'Photo by eberhard grossgasteiger @ Pexels.com';
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    color: #fff7;
+    text-shadow: 0 0 8px #fff9;
+}
+
+#main > div[style] {
+    filter: drop-shadow(0 0 5px #000a) blur(.5px);
+    position: absolute;
+    opacity: .8;
+    color: #f3f3f3;
+    transition: filter .35s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+#main > div[style]:hover {
+    filter: drop-shadow(0 0 5px #000a);
+}
+
+#main > .left {
+    text-shadow: 0 0 15px #000;
+    font-family: Unbounded, system-ui;
+    color: #f9f9f9;
+}
+
+#main > .left > .child {
+    transform: matrix3d(1, -.005, 0, 0, 0, 1, 0, 0.0005, 0, 0, 1, 0, 0, 0, 0, 1);
+}
+
+#main > .left > .child > h1 > .typer {
+    color: #0000;
+    background: linear-gradient(#1e90ff, #212121) text;
+    text-shadow: none;
+    filter: drop-shadow(0 0 5px #0009);
+}
+
+#main > .left > .child > hr {
+    border: none;
+    background: #fff;
+    height: 1px;
+    margin-block: 5px 4px;
+    filter: drop-shadow(0px 0px 15px #000);
+}
+
+#main > .left > .child > h3 {
+    font-weight: 600;
+}
+
+@keyframes move {
+    20% {
+        margin-top: -12px;
+    }
+    40% {
+        margin-right: -12px;
+    }
+    60% {
+        margin-bottom: -12px;
+    }
+    80% {
+        margin-left: -12px;
+    }
+}
+
+#main > .right > .app {
+    display: flex;
+    gap: 6px;
+    transform: matrix3d(1, -0.01, 0, -.0001, -.1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    /* animation: move 1s cubic-bezier(0.755, 0.05, 0.855, 0.06) infinite; */
+}
+
+#main > .right > .app > .guilds > .guild {
+    background: #d7d7d9;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #0005;
+    color: #000d;
+    padding: 8px 6px;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+#main > .right > .app > .guilds > .guild[pings]::after {
+    content: attr(pings);
+    background: #ff3c25;
+    position: absolute;
+    right: -5px;
+    bottom: -5px;
+    color: #fff;
+    padding: 2px;
+    z-index: 1;
+    font-size: .75em;
+    border-radius: 50%;
+}
+
+#main > .right > .app > .guilds > * {
+    margin-bottom: 8px;
+}
+
+#main > .right > .app > .guilds > hr {
+    border: none;
+    height: 1px;
+    background: #d7d7d9;
+    filter: drop-shadow(0 0 15px #0005);
+}
+
+#main > .right > .app > .chat > .message {
+    background: linear-gradient(180deg, #e9e9eb, #c3c3c3);
+    box-shadow: 0 0 15px #0005;
+    color: #000;
+    border-radius: 15px;
+    padding: 6px 12px;
+    width: max-content;
+    margin-bottom: 5px;
+}
+
+#main > .right > .app > .chat > .message.own {
+    background: linear-gradient(0deg, #1d6332, #239b2c);
+    color: #fff;
+    justify-self: right;
+    margin-left: 50px;
+}
+
+#member {
+    box-shadow: 0 -5px 15px #0005;
+    background: url(./purple-aesthetic-3840x2160-22785.jpg) 0 / cover;
+    text-align: center;
+    padding-block: 50px;
+    color: #fff;
+    font-family: "Rubik", system-ui;
+}
+
+#member > h2 {
+    font-size: 1.6em;
+    color: #0000;
+    background: linear-gradient(45deg, #46ffffbb, #0000, #ff00b1), radial-gradient(#2cfffd, #9100ff);
+    background-clip: text;
+    width: max-content;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+#member > h2::before {
+    content: 'Trusted @ uncoverit.org';
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    z-index: -1;
+    filter: blur(15px) saturate(10);
+}
+
+#member > .app {
+    margin: 12px auto 0;
+    border-radius: 15px;
+    background: linear-gradient(180deg, #064551, #411b41);
+    box-shadow: 0 0 5px #0002;
+    width: max-content;
+    overflow: hidden;
+}
+
+#member > .app > .titlebar {
+    background: #0004;
+    box-shadow: 0 0 15px #0004;
+    font-size: .88em;
+    padding: 7px 0;
+}
+
+#member > .app > .flex {
+    display: flex;
+    gap: 8px;
+}
+
+#member > .app > .flex > .guilds {
+    padding: 8px;
+}
+
+#member > .app > .flex > .guilds > .guild {
+    background: #fff2;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #0003;
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    font-size: 1.3em;
+}
+
+#member > .app > .flex > .guilds > .guild > img {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+}
+
+#member > .app > .flex > .guilds > hr {
+    border: none;
+    background: #fff;
+    height: 1px;
+}
+
+#member > .app > .flex > .guilds > * {
+    margin-bottom: 8px;
+}
+
+#member > .app > .flex > .chat > .messages > .message {
+    padding-left: 45px;
+    margin: 7px 15px 14px 0;
+}
+
+#member > .app > .flex > .chat > .messages > .message > .author {
+    display: flex;
+    position: relative;
+}
+
+#member > .app > .flex > .chat > .messages > .message > .author > img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: -5px;
+    translate: -100%;
+}
+
+#member > .app > .flex > .chat > .messages > .message > .author > p {
+    color: #0000;
+    background: linear-gradient(45deg, #6a40e1, #a585ff, #6a40e1) text;
+    font-weight: 500;
+}
+
+#member > .app > .flex > .chat > .messages > .message > .body {
+    font-weight: 300;
+    text-align: left;
+}
+
+#member > .app > .flex > .chat > .text {
+    border-radius: 15px;
+    background: #fff1;
+    box-shadow: 0 0 15px #0001;
+    padding: 8px;
+    margin: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    text-decoration: none;
+    color: #fff;
+}
+
+#tools {
+    background: url(https://i0.wp.com/picjumbo.com/wp-content/uploads/abstract-background-glass-crystals-and-rose-petals-free-image.jpeg?w=1920&quality=95);
+    box-shadow: inset 0 7px 15px -9px #0008;
+    color: #fff;
+    display: grid;
+    justify-content: center;
+    gap: 7px;
+    padding: 50px 0;
+}
+
+#tools > h2 {
+    font-family: "QuickSand", system-ui;
+    font-size: 1.7em;
+    color: #0000;
+    width: max-content;
+    margin: 0 auto 7px;
+    background-image: radial-gradient(#0000, #fff, #0000),
+                      linear-gradient(45deg, #1e90ff, #800080);
+    background-clip: text;
+    position: relative;
+    z-index: 1;
+}
+
+#tools > h2::before {
+    content: 'Empowering process automation';
+    position: absolute;
+    inset: 0;
+    filter: blur(15px) saturate(20);
+    background: inherit;
+    z-index: -1;
+}
+
+#tools > .projects {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 720px;
+}
+
+#tools > .projects > .project {
+    background: linear-gradient(45deg, #333335aa, #33333588, #33333599);
+    backdrop-filter: blur(50px);
+    box-shadow: 0 0 15px #00000080, inset 0 -5px 15px -3px #0002;
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 15px;
+    padding: 20px 25px;
+    width: 350px;
+    position: relative;
+}
+
+#tools > .projects > .project::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border-radius: 8px;
+    background: conic-gradient(from 0deg, #fbff00, #ff8800, #ff0000, #fbff00);
+    background-size: 300% 300%;
+    animation: spin 4s linear infinite;
+    clip-path: polygon(
+        0% 0%, 100% 0%, 100% 100%, 0% 100%,
+        1% 95%, 2% 95%, 3% 95%,
+        97% 95%, 98% 95%, 99% 95%,
+        97% 5%, 98% 5%, 99% 5%,
+        1% 5%, 2% 5%, 3% 5%,
+        1% 95%, 2% 95%, 3% 95%,
+        0% 100%
+    );
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 95%, 98% 95%, 98% 5%, 2% 5%, 2% 100%, 0% 100%);
+    z-index: -1;
+}
+
+#tools > .projects > .project.jani::before {
+    background-image: conic-gradient(from 0deg, #ff0066, #d400ff, #8c00ff, #ff0066);
+    animation-delay: .3s;
+}
+
+#tools > .projects > .project.lprm::before {
+    background-image: conic-gradient(from 0deg, #00aeff, #0077ff, #8400ff, #00aeff);
+    animation-delay: .3s;
+}
+
+@keyframes spin {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+#tools > .projects > .project > p {
+    font-size: 1.2em;
+    font-weight: 500;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 2px;
+    padding-bottom: 3px;
+}
+
+footer {
+    display: flex;
+    gap: 5%;
+    padding: 3% 5%;
+    background: #0006;
+    backdrop-filter: blur(50px);
+    color: #fff;
+}
+
+footer > .category > h2 {
+    text-shadow: 0 0 15px #fff;
+}
+
+footer > .category > a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 9px;
+    border-radius: 10px;
+    border: 1px solid #fff4;
+    text-decoration: none;
+    margin-top: 4px;
+}
