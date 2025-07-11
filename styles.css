@@ -232,7 +232,7 @@ section, footer {
 
 #member {
     box-shadow: 0 -5px 15px #0005;
-    background: url(./purple-aesthetic-3840x2160-22785.jpg) 0 / cover;
+    background: url(./purple-aesthetic-3840x2160-22785.jpg) 0 / cover fixed;
     text-align: center;
     padding-block: 50px;
     color: #fff;
