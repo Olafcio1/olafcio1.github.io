@@ -364,3 +364,16 @@ footer {
     	}
     }
 }
+
+@font-face {
+	font-family: 'Jost';
+	src: url(./Jost-VariableFont_wght.ttf), local("Jost");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Jost';
+	font-style: italic;
+	src: url(./Jost-Italic-VariableFont_wght.ttf), local("Jost");
+	font-display: swap;
+}
