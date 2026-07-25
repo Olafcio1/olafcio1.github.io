@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Olafcio - Portfolio</title>
+	<link rel="stylesheet" type="text/css" href="./styles.css">
+</head>
+<body>
+	<main>
+		<nav>
+			<p>Olafcio</p>
+			<ul class="items">
+				<li>
+					<a href="#projects">My Projects</a>
+				</li>
+				<li>
+					<a href="#antiai">Fightning AI</a>
+				</li>
+				<li>
+					<a href="#avoid">Mod Framework</a>
+				</li>
+			</ul>
+		</nav>
+		<section id="top">
+			<h1>I'm trying to reshape the whole Minecraft Modding architecture;</h1>
+			<div class="project-span">
+				<div
+						class="project listening"
+						href="./avoid/"
+						style="
+							rotate:-7deg;
+							--rmouseX:var(--rmouseX1);
+							--rmouseY:var(--rmouseY1);
+							--neg:-1
+						">
+					<img src="./avoid.png">
+					<span>Avoid</span>
+				</div>
+				<div
+						class="project listening"
+						href="./funcutter/"
+						style="
+							rotate:4deg;
+							left:156px;
+							top:-45px;
+							--rmouseX:var(--rmouseX0);
+							--rmouseY:var(--rmouseY0)
+						">
+					<img src="./funcutter.png">
+					<span>Funcutter</span>
+				</div>
+			</div>
+		</section>
+		<section id="gopowered">
+			<h1>I'm empowering Go with additional QoL features;</h1>
+			<code>
+					<p class="set2"><go part="kw">package</go> <go part="lit">main</go></p>
+					<p class="set2">&nbsp;</p>
+					<p class="set2"><go part="kw">func</go> <go part="def">main()</go> <go part="opdef">{</go></p>
+					<p class="set1"><go part="kw"><u>final</u></go> <go part="kw">var</go> <go part="lit">hello</go> <go part="op">=</go> <go part="str">"World!"</go></p>
+					<p class="set2">  <go part="ref">println</go><go part="opref">(</go><go part="str">"Hello, "</go> <go part="op">+</go> <go part="lit">hello</go><go part="opref">)</go></p>
+					<p class="set2"><go part="opdef">}</go></p>
+					<p class="set2">&nbsp;</p>
+			</code>
+			<a href="https://github.com/Olafcio1/GoPowered">github.com/Olafcio1/GoPowered</a>
+		</section>
+	</main>
+	<script src="./index.js" type="module" async defer></script>
+</body>
+</html>
