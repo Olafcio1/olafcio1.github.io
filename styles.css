@@ -204,3 +204,163 @@ nav{
 		color:#fff6;
     }
 }
+
+#antiai {
+    margin-inline: -8px;
+    background: linear-gradient(0deg, rgb(183 161 99), #0000, rgb(177 147 117)),
+    		    linear-gradient(45deg, rgb(139 128 91), rgb(177 147 117));
+    width: calc(100% + 16px);
+    height: calc(100% + 20px);
+    box-shadow: 0 0 15px #0003, inset 0 5px 15px #0003;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    transition: padding-bottom .1s;
+
+    > .modrinth {
+    	margin-top: 3px;
+    	background: #0003;
+    	padding: 5px;
+    	border-radius: 8px;
+    	box-shadow: 0 0 15px #0004;
+
+    	.rect {
+    		background: var(--color, #00000027);
+	    	border-radius: 8px;
+    		min-width: 40px;
+    		height: 16px;
+    		position: relative;
+    		display: inline-block;
+
+    		&[realtext] {
+    			overflow: hidden;
+
+    			&::before {
+    				content: attr(realtext);
+    				color: color-mix(in srgb, var(--color), #000);
+    				pointer-events: none;
+    				font-size: 0em;
+    				position: relative;
+    				top: -4px;
+    				opacity: 0;
+    				width: max-content;
+	    			transition: font-size .15s,
+	    					    opacity .25s cubic-bezier(0.65, 0, 0.35, 1);
+    			}
+
+    			&:hover::before {
+    				transition-duration: .3s, .25s;
+    				opacity: 1;
+    				font-size: .8em;
+    				padding-inline: 5px;
+    			}
+    		}
+    	}
+
+    	> .nav {
+    		margin-bottom: 6px;
+    	}
+
+    	> .grid > .project {
+		    background: #00000016;
+		    border-radius: 7px;
+		    padding: 6px;
+		    display: flex;
+		    backdrop-filter: blur(4px);
+
+		    &::before {
+		    	background: #00000015;
+		    	border-radius: 6px;
+		    	width: 22px;
+		    	height: 22px;
+		    	content: '';
+		    	display: inline-block;
+		    	margin: -3px;
+		    	margin-right: 5px;
+		    }
+
+		    &:not(:last-of-type) {
+			    margin-bottom: 3px;
+			}
+    	}
+
+    	&.visible > .grid > .project {
+    		&:has(> .rect[style]) {
+    			animation: analyze .6s 1s forwards, popout .3s cubic-bezier(0.83, 0, 0.17, 1) 2s forwards;
+    		}
+    	}
+    }
+
+    > a {
+    	margin-top: 5px;
+    	background: #0003;
+    	padding: 5px;
+    	border-radius: 8px;
+    	box-shadow: 0 0 15px #0004;
+    	text-align: center;
+    	color: #000a;
+    }
+}
+
+@keyframes popout {
+	100% {
+		opacity: 0;
+		height: 0;
+		margin: 0;
+		padding: 0;
+	}
+}
+
+@keyframes analyze {
+	33% {
+		translate: -10px;
+	}
+
+	77% {
+		translate: 10px;
+	}
+}
+
+footer {
+    margin-inline: -8px;
+    background: linear-gradient(180deg, #f1bd49, #856b32);
+    padding: 30px;
+    display: flex;
+    height: 300px;
+
+    > .category {
+    	margin-left: 115px;
+
+    	> p {
+    		font-weight: 500;
+    	}
+
+    	> ul {
+    		list-style: none;
+
+    		a {
+	    		color: #333;
+
+	    		&::before {
+	    			width: 0px;
+	    			display: inline-block;
+	    			content: '› ';
+	    			overflow: hidden;
+	    			text-wrap: nowrap;
+	    			position: relative;
+	    			top: 5px;
+	    			transition: width .4s;
+	    		}
+
+	    		&:hover::before {
+	    			width: 10px;
+	    			transition-duration: 1s;
+	    		}
+
+	    		&:visited {
+	    			color: #4a4a4a;
+	    		}
+	    	}
+    	}
+    }
+}
