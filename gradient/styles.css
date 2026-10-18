@@ -110,7 +110,7 @@ main {
       line-height: 29px;
     }
 
-    &.latex-md, &.latex {
+    &.latex_md, &.latex {
       font-family: math;
       line-height: 27px;
     }
