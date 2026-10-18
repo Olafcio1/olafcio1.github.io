@@ -50,7 +50,7 @@ export function supplyGradient({ text, method, color1, color2, element }) {
       else if (method == 'latex_md')
           out += `\\color{%23${hex(r)}${hex(g)}${hex(b)}}{\\text{${encodeURIComponent(ch)}}}`;
       else if (method == 'minecraft')
-          out += `&#${hex(r)}${hex(g)}${hex(b)}`;
+          out += `&#${hex(r)}${hex(g)}${hex(b)}${ch + (ch=='&'?'&x':'')}`;
       else
           throw new Error("Expected method to be 'html' or 'latex' or 'latex_md' or 'minecraft'");
   }
