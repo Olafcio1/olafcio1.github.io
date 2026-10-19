@@ -1,0 +1,91 @@
+@font-face {
+  font-family: "COCOMAT";
+  src: url("./Cocomat Light.ttf"), local("COCOMAT");
+  font-display: swap;
+}
+
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, main {
+  width: 100%;
+  height: 100%;
+}
+
+main {
+  font-family: COCOMAT, system-ui;
+  background: radial-gradient(black, #632b8700), linear-gradient(45deg, #632b87, #ff4242);
+  background-size: 500%;
+  display: flex;
+  align-items: center;
+  padding-inline: 15%;
+  padding-bottom: 3%;
+}
+
+main > .title {
+  font-size: 1.4em;
+
+  > h1 {}
+
+  > p > span {
+    color: #0000;
+    background: radial-gradient(#4a58a5, #0000) text, linear-gradient(45deg, #663b87, #da65e7) text;
+    background-size: 100%;
+  }
+}
+
+main > .right {
+  margin-left: 20%;
+  display: grid;
+  gap: 10px;
+
+  > .links {
+    text-align: right;
+
+    > a {
+      text-decoration: none;
+      color: #efefef33;
+      transition: color .3s;
+
+      &:hover {
+        color: #efefef45;
+      }
+    }
+  }
+
+  > .window {
+    background: #efefef25;
+    border-radius: 8px;
+    padding: 4px 6px;
+
+    > p {
+      font-family: monospace;
+      white-space: pre;
+      height: 17px;
+
+      &.added {
+        background: #ae62c775;
+        border-radius: 8px;
+        box-shadow: 0 1px 0 #ae62c7;
+        margin-left: -2px;
+        padding-left: 2px;
+
+        > span { color: #e59be7 }
+
+        &:has(+ .added) {
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+          box-shadow: none;
+        }
+
+        & + .added {
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+        }
+      }
+    }
+  }
+}
