@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Avoid Framework</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://unpkg.com/corsfix"></script>
+  </head>
+  <body>
+    <script src="./scripts/get-fa.js" type="module" async defer></script>
+    <nav class="leftbar">
+      <!--
+        <a href="#">
+          <i class="fa-slab-press-duo fa-book-open"></i>
+          <span class="sep"></span>
+          <span>Wiki</span>
+
+          <i class="fa-slab-press fa-regular fa-book"></i>
+        </a>
+        <br/>
+      -->
+    </nav>
+    <div class="child full">
+      <main>
+        <div class="background full"></div>
+        <div class="content full">
+          <div class="child">
+            <div class="h1">
+              <h1 class="logo">Code it once</h1>
+              <div class="sep"></div>
+            </div>
+            <p>Have it work forever</p>
+          </div>
+          <div class="diagram">
+            <div class="jar">
+              <div class="corner">
+                <i class="fa-regular fa-hammer"></i>
+              </div>
+              <i class="fa-slab-press fa-regular fa-mug-hot"></i>
+            </div>
+            <div class="arrow-down">
+              <i class="fa-slab-press fa-regular fa-arrow-down"></i>
+            </div>
+            <div class="jar">
+              <img src="../assets/avoid.png">
+            </div>
+            <div class="arrow-down">
+              <i class="fa-slab-press fa-regular fa-arrow-down"></i>
+            </div>
+            <div class="windows">
+              <div class="window">
+                <div class="titlebar">Minecraft 1.21.5</div>
+                <div class="body"></div>
+              </div>
+              <div class="window">
+                <div class="titlebar">Minecraft 1.21.8</div>
+                <div class="body"></div>
+              </div>
+              <div class="window">
+                <div class="titlebar">Minecraft 1.21.10</div>
+                <div class="body"></div>
+              </div>
+              <div class="window">
+                <div class="titlebar">Minecraft 1.21.11</div>
+                <div class="body"></div>
+              </div>
+              <div class="window">
+                <div class="titlebar">Minecraft 26.1.x</div>
+                <div class="body"></div>
+              </div>
+              <div class="window">
+                <div class="titlebar">Minecraft 26.2</div>
+                <div class="body"></div>
+              </div>
+              <div class="window">
+                <div class="titlebar">Minecraft 26.3</div>
+                <div class="body"></div>
+              </div>
+              <div class="window">
+                <div class="titlebar">Minecraft 26.4</div>
+                <div class="body"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <section id="multiloader">
+        <h2>Be <span>platform-agnostic</span></h2>
+        <div class="platforms">
+          <div class="platform" style="--color: #cd9122; --image: url(https://avatars.githubusercontent.com/u/138629134?s=1024&v=4)">
+            <p>NeoForge</p>
+          </div>
+          <div class="platform" style="--color: #f7f7ab; --image: url(https://avatars.githubusercontent.com/u/21025855?s=1024&v=4)">
+            <p>Fabric</p>
+          </div>
+          <div class="platform" style="--color: #c3b048; --image: url(https://avatars.githubusercontent.com/u/8683473?s=1024&v=4)">
+            <p>Sponge</p>
+          </div>
+          <div class="platform" style="--color: #b33a3a; --image: url(https://avatars.githubusercontent.com/u/7608950?s=1024&v=4)">
+            <p>Paper</p>
+          </div>
+        </div>
+      </section>
+      <section id="environment">
+        <div class="title">
+          <h2><span>Versatile</span> environment</h2>
+          <p>Classloading issues out of the way.</p>
+        </div>
+        <div class="screens">
+          <div class="screen screen-bugged">
+            <div class="code">
+              <p>package com.example.exmod;</p>
+              <p></p>
+              <p>import net.minecraft.client.entity.renderer.EntityRenderer;</p>
+              <p>import net.minecraft.client.entity.renderer.EntityModel;</p>
+              <p></p>
+              <p>public class EntityRenderers {</p>
+              <p>  public static void setup(EntityRenderer renderer, EntityModel model) {</p>
+              <p>    ...</p>
+              <p>  }</p>
+              <p>}</p>
+            </div>
+            <div class="terminal red">
+              <p><i class="fa-slab-press fa-regular fa-triangle-exclamation"></i> java.lang.ClassNotFoundException</p>
+              <p>&emsp;&emsp;&emsp;java.lang.ClassLoader.findClass</p>
+              <p>&emsp;&emsp;&emsp;java.lang.ClassLoader.loadClass</p>
+              <p>&emsp;&emsp;&emsp;com.example.mymod.Main</p>
+              <p>&emsp;&emsp;&emsp;net.fabricmc.api.EntrypointInitializer</p>
+              <p>&emsp;&emsp;&emsp;net.minecraft.core.BuiltInRegistries</p>
+              <p>&emsp;&emsp;&emsp;net.minecraft.client.Main</p>
+            </div>
+          </div>
+          <div class="screen screen-resolved">
+            <div class="code">
+              <p>package com.example.exmod;</p>
+              <p></p>
+              <p>import pl.olafcio.avoid.net.entity_renderer.EntityRenderer;</p>
+              <p>import pl.olafcio.avoid.net.entity_renderer.EntityModel;</p>
+              <p></p>
+              <p>public class EntityRenderers {</p>
+              <p>  public static void setup(EntityRenderer renderer, EntityModel model) {</p>
+              <p>    ...</p>
+              <p>  }</p>
+              <p>}</p>
+            </div>
+            <div class="terminal">
+              <p><i class="fa-slab-press fa-regular fa-check"></i> Started server in 15s</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="./scripts/index.js" type="module" async defer></script>
+  </body>
+</html>
